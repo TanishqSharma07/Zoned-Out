@@ -1,7 +1,9 @@
 faster_whisper==1.1.1
-huggingface_hub
-langchain==1.2.13
-langchain_core==1.2.20
+huggingface_hub==1.7.2
+langchain_community==0.4.1
+langchain_core==1.2.23
 langchain_huggingface==1.2.1
+langchain_text_splitters==1.1.1
 python-dotenv==1.2.2
 streamlit==1.46.1
+faiss-cpu

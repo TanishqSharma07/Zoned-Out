@@ -1,4 +1,63 @@
+# Virtual environments
+
 venv/
-__pycache__/
-*.pyc
+env/
+.venv/
+
+# Git
+
+.git/
+.gitignore
+.gitattributes
+
+# Python
+
+**pycache**/
+_.pyc
+_.pyo
+_.pyd
+.Python
+_.egg-info/
+.eggs/
+dist/
+build/
+\*.egg
+.pytest_cache/
+.coverage
+htmlcov/
+
+# IDEs
+
+.vscode/
+.idea/
+_.swp
+_.swo
+\*~
+.DS_Store
+
+# Environment
+
 .env
+.env.local
+.env.\*.local
+
+# Test and audio files
+
+audio/
+_.wav
+_.mp3
+\*.m4a
+
+# Documentation
+
+README.md
+readme.md
+DOCS/
+
+# Misc
+
+.dockerignore
+Dockerfile
+Dockerfile._
+.docker/
+_.md
