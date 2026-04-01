@@ -2,7 +2,7 @@ FROM python:3.11-slim
 
 WORKDIR /app
 
-# Set environment variables to reduce image size and improve performance
+
 ENV PYTHONUNBUFFERED=1 \
     PYTHONDONTWRITEBYTECODE=1 \
     PIP_NO_CACHE_DIR=1 \
@@ -11,19 +11,19 @@ ENV PYTHONUNBUFFERED=1 \
     HF_HOME=/app/.cache/huggingface \
     STREAMLIT_CONFIG_PATH=/app/.streamlit
 
-# Create non-root user for security
+
 RUN groupadd -r appuser && useradd -r -g appuser appuser && \
     mkdir -p /app/.cache/huggingface /app/.streamlit && \
     chown -R appuser:appuser /app
 
-# Install dependencies in single RUN command to minimize layers
+
 COPY requirements.txt .
 RUN pip install --upgrade pip setuptools wheel && \
     pip install -r requirements.txt && \
     find /usr/local -type d -name "__pycache__" -exec rm -rf {} + 2>/dev/null || true && \
     find /usr/local -type f -name "*.pyc" -delete
 
-# Copy application code
+
 COPY --chown=appuser:appuser src/ ./src/
 
 USER appuser

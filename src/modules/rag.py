@@ -26,13 +26,13 @@ hf_token = os.getenv("HF_TOKEN")
 login(token=hf_token)
 
 
-# Step 1: Split trancript into chunks
+
 def spilt_text(text):
     splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=50)
     return splitter.split_text(text)
 
 
-# Step 2: Create vector store
+
 def build_vector_store(chunks):
     documents = [Document(page_content=chunk) for chunk in chunks]
 
@@ -44,7 +44,7 @@ def build_vector_store(chunks):
     return db
 
 
-# Step 3: Create RAG chain
+
 def create_rag_chain(db):
 
     def format_docs(docs):
@@ -81,7 +81,7 @@ def create_rag_chain(db):
     return qa_chain
 
 
-# Master function
+
 def setup_rag_pipeline(transcript):
     chunks = spilt_text(transcript)
 
